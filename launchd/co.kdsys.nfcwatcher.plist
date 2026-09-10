@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>co.kdsys.nfcwatcher</string>
+
+    <!-- __BIN__ 은 install.sh 가 실제 경로로 치환 -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>__BIN__</string>
+    </array>
+
+    <!-- 로그인 시 자동 시작 -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- 비정상 종료 시 자동 재시작 (상시 상주) -->
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- 재시작 폭주 방지 -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <!-- 백그라운드 QoS: CPU/IO 우선순위를 낮춰 시스템 영향 최소화 -->
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>LowPriorityIO</key>
+    <true/>
+    <key>Nice</key>
+    <integer>5</integer>
+
+    <!-- stdout/stderr (내부 로그는 별도 파일 사용) -->
+    <key>StandardOutPath</key>
+    <string>__LOGDIR__/nfcwatcher.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>__LOGDIR__/nfcwatcher.err.log</string>
+</dict>
+</plist>

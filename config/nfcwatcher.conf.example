@@ -1,0 +1,32 @@
+# nfcwatcher 설정 파일
+# 형식: key = value  (# 은 주석)
+
+# 감시 폴더 (여러 줄 가능). ~ 는 홈으로 확장됨.
+# 하위 폴더까지 자동으로 재귀 감시됩니다.
+watch = ~/Downloads
+watch = ~/Desktop
+
+# 이벤트 후 안정화 대기(초). 파일 복사가 끝난 뒤 변환하도록.
+# 대용량 파일을 자주 다루면 3~5초로 늘리세요.
+debounce_seconds = 2.0
+
+# FSEvents 배치 지연(초). 클수록 깨어남이 줄어 CPU/배터리 절약.
+latency_seconds = 1.0
+
+# 무시할 확장자 (공백 구분, 점 제외). 다운로드/임시 파일 보호.
+ignore_ext = tmp part crdownload download partial
+
+# 숨김 파일(.으로 시작) 무시
+ignore_hidden = true
+
+# 이름 충돌 시 정책: skip | rename | overwrite
+#   skip      : 변환하지 않고 로그만 (기본, 가장 안전)
+#   rename    : "이름 (1).ext" 로 번호 붙임
+#   overwrite : 기존 파일 덮어씀 (주의)
+conflict = skip
+
+# 로그 파일 경로
+log = ~/Library/Logs/nfcwatcher.log
+
+# 변환 내역을 UNDO 매핑(대상<TAB>원본)으로 기록
+undo_log = true
